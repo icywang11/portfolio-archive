@@ -13,12 +13,12 @@ npm run dev
 
 ## 发布到 GitHub Pages
 
-站点地址：https://icywang11.github.io/icy-portfolio/
+站点地址：https://icywang11.github.io/portfolio-archive/
 
-推送到 `main` 后，GitHub Actions 会构建并发布。项目路径必须带 `/icy-portfolio/`：
+推送到 `main` 后，GitHub Actions 会构建并发布。项目路径必须带 `/portfolio-archive/`：
 
 ```bash
-VITE_BASE_PATH=/icy-portfolio/ npm run build
+VITE_BASE_PATH=/portfolio-archive/ npm run build
 ```
 
 ## 改内容

@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { Menu, X } from "lucide-react"
 import { nav, site } from "@/data/site"
+import { asset } from "@/lib/asset"
 import { cn } from "@/lib/cn"
 
 export function SiteHeader() {
@@ -32,6 +33,14 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-4">
+          <a
+            href={asset(site.resume)}
+            download={site.resumeFileName}
+            data-cursor="SAVE"
+            className="hidden text-[11px] tracking-[0.18em] uppercase text-mute hover:text-ink md:inline"
+          >
+            Resume
+          </a>
           <Link
             to="/works"
             data-cursor="VIEW"
@@ -62,6 +71,14 @@ export function SiteHeader() {
               {item.label}
             </NavLink>
           ))}
+          <a
+            href={asset(site.resume)}
+            download={site.resumeFileName}
+            onClick={() => setOpen(false)}
+            className="block border-b border-line py-4 font-serif text-3xl italic"
+          >
+            Resume
+          </a>
         </nav>
       ) : null}
     </header>

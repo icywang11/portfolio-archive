@@ -42,6 +42,11 @@ export function AboutPage() {
                 <span key={tag}>{tag}</span>
               ))}
             </div>
+            <div className="mt-6">
+              <ArchiveLink href={asset(site.resume)} download={site.resumeFileName} cursor="SAVE">
+                Download resume
+              </ArchiveLink>
+            </div>
           </Reveal>
         </div>
 

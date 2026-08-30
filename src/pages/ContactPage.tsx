@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { site } from "@/data/site"
+import { asset } from "@/lib/asset"
 import { Meta, Reveal } from "@/components/ui/Reveal"
 import { ArchiveLink } from "@/components/ui/ArchiveLink"
 
@@ -38,9 +39,21 @@ export function ContactPage() {
             <span className="text-[11px] tracking-[0.16em] uppercase text-mute">GitHub</span>
             <span className="font-serif text-2xl italic">icywang11</span>
           </a>
+          <a
+            href={asset(site.resume)}
+            download={site.resumeFileName}
+            data-cursor="SAVE"
+            className="flex items-center justify-between border-b border-line py-5"
+          >
+            <span className="text-[11px] tracking-[0.16em] uppercase text-mute">Resume</span>
+            <span className="font-serif text-2xl italic">icywang 简历.pdf</span>
+          </a>
         </div>
 
-        <Reveal className="mt-10">
+        <Reveal className="mt-10 flex flex-wrap gap-8">
+          <ArchiveLink href={asset(site.resume)} download={site.resumeFileName} cursor="SAVE">
+            Download resume
+          </ArchiveLink>
           <ArchiveLink href={`mailto:${site.email}`} cursor="MAIL">
             Open mail client
           </ArchiveLink>

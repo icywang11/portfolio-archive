@@ -14,6 +14,8 @@ export const site = {
   email: "wycsdu0516@163.com",
   wechat: "Wycrrika",
   github: "https://github.com/icywang11",
+  resume: "/icywang-resume.pdf",
+  resumeFileName: "icywang 简历.pdf",
   tags: ["Operations", "Data", "Community", "Campaigns", "Japanese"],
 }
 
@@ -38,7 +40,7 @@ export const directory = [
   { num: "02", title: "Works", hint: "Community · AI · Play · Sentiment", to: "/works" },
   { num: "03", title: "Internship", hint: "NetEase · POIZON", to: "/internship" },
   { num: "04", title: "Process", hint: "Research → Optimization", to: "/process" },
-  { num: "05", title: "Contact", hint: "Email / WeChat / GitHub", to: "/contact" },
+  { num: "05", title: "Contact", hint: "Email / Resume / GitHub", to: "/contact" },
 ] as const
 
 export const internships = [

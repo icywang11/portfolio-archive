@@ -6,12 +6,17 @@ import { Stat } from "@/components/ui/WindowFrame"
 
 export function ProjectPage() {
   const { slug } = useParams()
-  const canonical = slug ? (projectRedirects[slug] ?? slug) : undefined
-  if (slug && projectRedirects[slug]) {
-    return <Navigate to={`/works/${projectRedirects[slug]}`} replace />
-  }
-  const project = canonical ? getProject(canonical) : undefined
+  if (!slug) return <Navigate to="/works" replace />
+
+  const alias = projectRedirects[slug]
+  if (alias) return <Navigate to={alias} replace />
+
+  const project = getProject(slug)
   if (!project) return <Navigate to="/works" replace />
+  if (project.to !== `/works/${project.slug}`) {
+    return <Navigate to={project.to} replace />
+  }
+
   const next = getNextProject(project.slug)
   const extras = projectLinks[project.slug]
 
@@ -84,7 +89,7 @@ export function ProjectPage() {
           <Link to="/works" className="text-[11px] tracking-[0.16em] uppercase text-mute" data-cursor="BACK">
             ← Index
           </Link>
-          <ArchiveLink to={`/works/${next.slug}`} cursor="NEXT">
+          <ArchiveLink to={next.to} cursor="NEXT">
             Next · {next.title}
           </ArchiveLink>
         </div>

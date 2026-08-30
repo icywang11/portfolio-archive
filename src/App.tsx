@@ -10,6 +10,8 @@ import { WorksPage } from "@/pages/WorksPage"
 import { ProjectPage } from "@/pages/ProjectPage"
 import { ProcessPage } from "@/pages/ProcessPage"
 import { ContactPage } from "@/pages/ContactPage"
+import { PlayPage } from "@/pages/PlayPage"
+import { InternshipPage } from "@/pages/InternshipPage"
 
 export default function App() {
   const location = useLocation()
@@ -49,6 +51,8 @@ export default function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/works" element={<WorksPage />} />
               <Route path="/works/:slug" element={<ProjectPage />} />
+              <Route path="/play" element={<PlayPage />} />
+              <Route path="/internship" element={<InternshipPage />} />
               <Route path="/process" element={<ProcessPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />

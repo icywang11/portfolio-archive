@@ -13,6 +13,7 @@ export type Project = {
   execution: string[]
   result: string
   reflection: string
+  to: string
   href?: string
   hrefLabel?: string
   linksLabel?: string
@@ -21,67 +22,17 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "ai-tools",
-    num: "01",
-    title: "AI 工具使用",
-    enTitle: "AI in Operations",
-    category: "Work",
-    year: "2026",
-    role: "海外运营",
-    summary: "工作里用 AI 做舆情对策和定时推送，把重复触达交给工具，判断留给人。",
-    overview:
-      "海外社区的消息量和舆情速度，靠手工翻看会跟不上。我在工作里用 AI 收舆情、整理对策，并用定时推送把内容发出去。像素小人、星座信、书单转盘是我自己的延伸玩法，放在「玩法落地」，不和社区看板混在一起。",
-    challenge:
-      "舆情一来就要确认范围、原因和风险；触达又要按时发生。如果这两件事都靠人盯，周报会写成流水账。",
-    approach:
-      "先把舆情处理写成固定步骤：收集、确认、策略、复盘。再用机器人做定时分发。人只做判断和对外口径。",
-    execution: [
-      "用 AI 收集舆情并整理对策：确认信息、紧急风险、与产品策划同步、安抚用户",
-      "使用龙虾做定时内容分发和运营触达",
-      "用机器人承担重复触达，人负责判断和复盘",
-    ],
-    result: "舆情有步骤可跟，推送有固定节奏。社区看板仍是工作里的指挥工具，见「社区运营」。",
-    reflection: "工作里的 AI 是为了把流程跑稳，不是为了做出三个可玩的小站。",
-    stats: [],
-  },
-  {
-    slug: "play-mechanics",
-    num: "02",
-    title: "玩法落地",
-    enTitle: "Play, Landed",
-    category: "Play",
-    year: "2026",
-    role: "社区机制 / 个人延伸",
-    summary: "社区里落地签到、指令和小游戏；另外用 AI 做了三件可玩的延伸，和看板不是同一件事。",
-    overview:
-      "社区增长不能只靠公告。工作里我把指令互动、签到、小游戏做成玩家会点的机制。另外，像素小人、每日星座心情、书单转盘是我用 AI 做的延伸玩法，用来练交付和回访，不是实习项目产出。",
-    challenge:
-      "玩法如果停在策划案，玩家看不见。个人做的 AI 小工具如果写成工作结果，又会和工作里的社区看板混在一起。",
-    approach:
-      "社区机制求能跑、能重复；个人延伸玩法求能打开、能玩。两条线分开写。",
-    execution: [
-      "社区落地：指令互动、签到与社区小游戏",
-      "社区落地：积分商城结构与运营配置",
-      "延伸玩法：像素小人，一张参考照生成可交付纸娃娃",
-      "延伸玩法：每日星座心情，把运势和穿搭写成会回访的信",
-      "延伸玩法：每日书单转盘，抽出作者和一句名言后写下今日一文",
-    ],
-    result: "社区玩法进了日常互动。三件延伸玩法可以点开试，它们不替代社区看板。",
-    reflection: "玩法落地看玩家会不会用；延伸玩法看自己会不会把它做完。工作成绩仍以社区运营和得物为准。",
-    linksLabel: "延伸玩法 · 可试玩",
-    stats: [],
-  },
-  {
     slug: "community-ops",
-    num: "03",
+    num: "01",
     title: "社区运营",
     enTitle: "Community Operations",
     category: "Work",
     year: "2026",
     role: "海外运营实习 · NetEase",
+    to: "/works/community-ops",
     summary: "Discord 基建、活动执行和数据复盘。社区活动看板是工作里真正在用的指挥板。",
     overview:
-      "在网易海外运营实习中，我负责 Discord 社区、活动落地和每周数据复盘，服务《燕云十六声》《全明星街球派对》。社区活动数据看板把 4 个社区、189 场活动、20 万参与人次摊在一页，这是工作产出，不是个人 AI 小工具。",
+      "在网易海外运营实习中，我负责 Discord 社区、活动落地和每周数据复盘，服务《燕云十六声》《全明星街球派对》。社区活动数据看板把 4 个社区、189 场活动、20 万参与人次摊在一页，用来指挥下一场。",
     challenge:
       "多社区并行时，触达、参与和舆情会散开。翻表耽误决策，周报只能事后叙述。",
     approach:
@@ -104,49 +55,67 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "poizon",
-    num: "04",
-    title: "得物",
-    enTitle: "POIZON",
-    category: "Work",
-    year: "2025",
-    role: "全球化运营实习",
-    summary: "重点商家经营与跨境营销，把商品、商家和活动数据跑顺。",
+    slug: "ai-tools",
+    num: "02",
+    title: "AI 工具使用",
+    enTitle: "Small Worlds",
+    category: "Personal",
+    year: "2026",
+    role: "个人项目",
+    to: "/works/ai-tools",
+    summary: "用 AI 把星座、读书这些兴趣做成可以打开的小网页。后面还会做太空和宇宙相关的东西。",
     overview:
-      "在得物全球化运营实习中，我维护跨境商品信息、跟进重点商家，并参与大促。工作重心是准确率和活动活跃。",
+      "我喜欢星座和印占，也喜欢读书。工作之外，我会用 AI 搭一些小网页，把这些兴趣做成可以打开、可以玩的东西：每日星座心情、书单转盘，还有像素小人。后面还会继续做太空和宇宙相关的内容——我是宇宙迷。",
     challenge:
-      "跨境 SKU 体量大，商家节奏不一。信息不准会伤转化；大促只做声量、不看活跃，活动会空转。",
+      "兴趣如果只停在收藏和备忘，很快就会过期。我想让它们变成可以每天回来看一眼的小地方。",
     approach:
-      "先把商品和商家数据做干净，再把大促压到可追踪的活跃指标上。",
+      "一个网页只做一件事：写信、抽书、出一张图。先做完，再慢慢把宇宙主题加进去。",
     execution: [
-      "维护 10万+ 跨境商品 SKU，准确率 99.5%",
-      "负责 30+ 重点商家的日常经营运营",
-      "参与跨境营销活动，跟踪大促活跃度",
+      "每日星座心情：运势、幸运色、穿搭和今日饮品排成一封信",
+      "每日书单转盘：抽出一位作者和一句名言，写下今日一文",
+      "像素小人：一张参考照生成可交付的像素纸娃娃",
     ],
-    result: "SKU 准确率保持 99.5%。大促活跃度提升 35%。",
-    reflection: "全球化运营先解决货和商家是否跑得顺，再谈增长。",
-    stats: [
-      { value: "10万+", label: "Cross-border SKU" },
-      { value: "99.5%", label: "Accuracy" },
-      { value: "30+", label: "Key Merchants" },
-      { value: "35%", label: "Campaign Activity" },
-    ],
+    result: "三件小网页都可以在线打开。之后会往太空、宇宙的方向继续做。",
+    reflection: "这些是兴趣的延伸，不是实习交付。工作里用的看板写在社区运营里。",
+    linksLabel: "打开小网页",
+    stats: [],
+  },
+  {
+    slug: "play",
+    num: "03",
+    title: "玩法落地",
+    enTitle: "Play",
+    category: "Play",
+    year: "2026",
+    role: "社区机制",
+    to: "/play",
+    summary: "线索解谜拉玩家进 Discord，再用机器人把上墙、彩蛋和抽奖跑起来。",
+    overview: "",
+    challenge: "",
+    approach: "",
+    execution: [],
+    result: "",
+    reflection: "",
+    stats: [],
   },
 ]
 
 export const projectLinks: Record<string, { label: string; href: string }[]> = {
-  "play-mechanics": [
-    { label: "像素小人制作", href: "https://icywang11.github.io/chibi-forge/" },
+  "ai-tools": [
     { label: "每日星座心情", href: "https://icywang11.github.io/icy-melody/" },
     { label: "每日书单转盘", href: "https://icywang11.github.io/book-spin/" },
+    { label: "像素小人制作", href: "https://icywang11.github.io/chibi-forge/" },
   ],
 }
 
 export const projectRedirects: Record<string, string> = {
-  "discord-community-board": "community-ops",
-  "netease-overseas-ops": "community-ops",
-  "poizon-global-ops": "poizon",
-  "ai-ops-tools": "ai-tools",
+  "discord-community-board": "/works/community-ops",
+  "netease-overseas-ops": "/works/community-ops",
+  "poizon-global-ops": "/internship",
+  poizon: "/internship",
+  "play-mechanics": "/play",
+  play: "/play",
+  "ai-ops-tools": "/works/ai-tools",
 }
 
 export function getProject(slug: string) {

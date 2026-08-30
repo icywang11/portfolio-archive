@@ -1,6 +1,6 @@
 # Icy Wang · Portfolio Archive
 
-Icy 的个人作品集：社区运营、游戏运营、内容与数据。视觉是编辑设计 / 数字档案馆，信息按求职作品集来写。
+Icy 的个人作品集：社区运营、AI 小网页、玩法落地，以及实习记录。视觉是编辑设计 / 数字档案馆。
 
 ## 本地运行
 
@@ -21,7 +21,8 @@ VITE_BASE_PATH=/icy-portfolio/ npm run build
 
 ## 改内容
 
-- 站点信息：`src/data/site.ts`
-- 案例：`src/data/projects.ts`
+- 站点信息、导航、实习：`src/data/site.ts`
+- 作品案例：`src/data/projects.ts`
+- 玩法落地页：`src/data/play.ts`
 - 流程：`src/data/process.ts`
-- 图片：`public/`（头像、流程图、摄影）。项目图可随时替换，路径写在 `projects.ts` 的 `image` 字段。
+- 图片：`public/`（头像、兴趣相册、玩法截图）

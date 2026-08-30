@@ -118,7 +118,7 @@ function IdentityRow({ label, value }: { label: string; value: string }) {
 
 function WorkPreview({ project }: { project: (typeof projects)[number] }) {
   return (
-    <Link to={`/works/${project.slug}`} data-cursor="VIEW" className="group block border-t border-line pt-5">
+    <Link to={project.to} data-cursor="VIEW" className="group block border-t border-line pt-5">
       <Meta>
         {project.num} / {project.category}
       </Meta>

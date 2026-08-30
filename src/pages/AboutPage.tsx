@@ -1,8 +1,15 @@
-import { site, skills, timeline, interests } from "@/data/site"
-import { Meta, Reveal } from "@/components/ui/Reveal"
+import { useState } from "react"
+import { hobbies, site, skills } from "@/data/site"
+import { asset } from "@/lib/asset"
+import { cn } from "@/lib/cn"
+import { AlbumSlider } from "@/components/ui/AlbumSlider"
 import { ArchiveLink } from "@/components/ui/ArchiveLink"
+import { Meta, Reveal } from "@/components/ui/Reveal"
 
 export function AboutPage() {
+  const [active, setActive] = useState<(typeof hobbies)[number]["id"]>("music")
+  const current = hobbies.find((hobby) => hobby.id === active) ?? hobbies[0]
+
   return (
     <div className="px-5 py-14 md:px-8 md:py-20">
       <div className="mx-auto max-w-[1180px]">
@@ -14,7 +21,7 @@ export function AboutPage() {
         <div className="mt-12 grid items-end gap-10 md:grid-cols-[0.42fr_0.58fr] md:gap-16">
           <Reveal>
             <img
-              src="/avatar.jpg"
+              src={asset("/avatar.jpg")}
               alt={site.name}
               className="aspect-[3/4] w-full rounded-[16px] object-cover object-[center_18%]"
             />
@@ -48,27 +55,6 @@ export function AboutPage() {
           </Reveal>
         </section>
 
-        <section id="experience" className="mt-20 scroll-mt-24">
-          <Reveal>
-            <Meta>Experience</Meta>
-            <h2 className="mt-3 font-serif text-4xl italic">Timeline</h2>
-          </Reveal>
-          <div className="mt-8 border-t border-ink">
-            {timeline.map((item) => (
-              <Reveal key={item.year}>
-                <div className="grid gap-3 border-b border-line py-6 md:grid-cols-[120px_1fr]">
-                  <p className="font-serif text-3xl italic">{item.year}</p>
-                  <div>
-                    <p className="font-serif text-2xl">{item.title}</p>
-                    <p className="text-[12px] tracking-[0.14em] uppercase text-mute">{item.role}</p>
-                    <p className="mt-2 text-[15px] text-mute">{item.note}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
         <section className="mt-20">
           <Reveal>
             <Meta>Skills</Meta>
@@ -88,23 +74,42 @@ export function AboutPage() {
           </div>
         </section>
 
-        <section className="mt-20">
+        <section id="interests" className="mt-20 scroll-mt-24">
           <Reveal>
             <Meta>Interests</Meta>
             <h2 className="mt-3 font-serif text-4xl italic">Outside the archive</h2>
+            <p className="mt-4 max-w-xl text-[15px] text-mute">音乐、摄影与旅行。点开分类看照片。</p>
           </Reveal>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {interests.map((item) => (
-              <Reveal key={item.title}>
-                <div className="border-t border-line pt-4">
-                  <h3 className="font-serif text-2xl italic">{item.title}</h3>
-                  <p className="mt-2 text-[14px] text-mute">{item.note}</p>
-                </div>
-              </Reveal>
+
+          <nav className="mt-10 grid grid-cols-3 border-t border-ink" role="tablist" aria-label="爱好分类">
+            {hobbies.map((hobby) => (
+              <button
+                key={hobby.id}
+                type="button"
+                role="tab"
+                aria-selected={hobby.id === active}
+                data-cursor="VIEW"
+                onClick={() => setActive(hobby.id)}
+                className={cn(
+                  "border-b border-line py-4 text-left text-[11px] tracking-[0.16em] uppercase",
+                  hobby.id === active ? "italic text-ink" : "text-mute",
+                )}
+              >
+                {hobby.tab}
+              </button>
             ))}
-          </div>
+          </nav>
+
+          <article className="pt-10">
+            <h3 className="font-serif text-3xl italic">{current.title}</h3>
+            <p className="mt-3 font-serif text-lg text-mute italic">{current.note}</p>
+            <div className="mt-8">
+              <AlbumSlider slides={current.slides} label={current.title} />
+            </div>
+          </article>
+
           <div className="mt-10">
-            <ArchiveLink to="/works">See selected works</ArchiveLink>
+            <ArchiveLink to="/internship">See internship</ArchiveLink>
           </div>
         </section>
       </div>

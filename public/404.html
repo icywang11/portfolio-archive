@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <title>Icy Wang · Portfolio Archive</title>
     <script>
-      const path = location.pathname.replace(/\/+$/, "") || "/";
-      const dest = "/?redirect=" + encodeURIComponent(path + location.search + location.hash);
-      location.replace(dest);
+      const path = location.pathname + location.search + location.hash
+      const base = "/icy-portfolio"
+      location.replace(base + "/?redirect=" + encodeURIComponent(path))
     </script>
   </head>
   <body></body>

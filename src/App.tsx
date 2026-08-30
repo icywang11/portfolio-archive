@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useLocation } from "react-router-dom"
+import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { SiteFooter, SiteHeader } from "@/components/layout/SiteHeader"
@@ -15,15 +15,21 @@ import { InternshipPage } from "@/pages/InternshipPage"
 
 export default function App() {
   const location = useLocation()
+  const navigate = useNavigate()
   const reduce = useReducedMotion()
 
   useEffect(() => {
     const params = new URLSearchParams(location.search)
     const redirect = params.get("redirect")
-    if (redirect && redirect.startsWith("/")) {
-      window.history.replaceState(null, "", redirect)
+    if (!redirect) return
+    const base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "")
+    let path = redirect
+    if (base && path.startsWith(base)) {
+      path = path.slice(base.length) || "/"
     }
-  }, [location.search])
+    if (!path.startsWith("/")) path = `/${path}`
+    navigate(path, { replace: true })
+  }, [location.search, navigate])
 
   useEffect(() => {
     window.scrollTo(0, 0)

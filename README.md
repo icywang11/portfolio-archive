@@ -13,11 +13,13 @@ npm run dev
 
 ## 发布到 GitHub Pages
 
+站点地址：https://icywang11.github.io/icy-portfolio/
+
+推送到 `main` 后，GitHub Actions 会构建并发布。项目路径必须带 `/icy-portfolio/`：
+
 ```bash
 VITE_BASE_PATH=/icy-portfolio/ npm run build
 ```
-
-把 `dist/` 部署到 `gh-pages`。项目站点必须带 `VITE_BASE_PATH`，否则静态资源会 404。`public/404.html` 会把刷新后的子路径导回应用。
 
 ## 改内容
 

@@ -78,10 +78,10 @@ export function AboutPage() {
           <Reveal>
             <Meta>Interests</Meta>
             <h2 className="mt-3 font-serif text-4xl italic">Outside the archive</h2>
-            <p className="mt-4 max-w-xl text-[15px] text-mute">音乐、摄影与旅行。点开分类看照片。</p>
+            <p className="mt-4 max-w-xl text-[15px] text-mute">音乐、摄影、旅行与阅读。点开分类看照片。</p>
           </Reveal>
 
-          <nav className="mt-10 grid grid-cols-3 border-t border-ink" role="tablist" aria-label="爱好分类">
+          <nav className="mt-10 grid grid-cols-2 border-t border-ink md:grid-cols-4" role="tablist" aria-label="爱好分类">
             {hobbies.map((hobby) => (
               <button
                 key={hobby.id}
@@ -104,7 +104,9 @@ export function AboutPage() {
             <h3 className="font-serif text-3xl italic">{current.title}</h3>
             <p className="mt-3 font-serif text-lg text-mute italic">{current.note}</p>
             <div className="mt-8">
-              <AlbumSlider slides={current.slides} label={current.title} />
+              {current.slides.length > 0 ? (
+                <AlbumSlider key={current.id} slides={current.slides} label={current.title} />
+              ) : null}
             </div>
           </article>
 

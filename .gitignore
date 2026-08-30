@@ -17,6 +17,10 @@
 /.next/
 /out/
 
+# vite
+/dist
+/tmp-vite
+
 # production
 /build
 

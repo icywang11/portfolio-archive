@@ -1,5 +1,6 @@
+import { useEffect } from "react"
 import { Link, Navigate, useParams } from "react-router-dom"
-import { getNextProject, getProject, projectLinks, projectRedirects } from "@/data/projects"
+import { getNextProject, getProject, isExternalProject, projectLinks, projectRedirects } from "@/data/projects"
 import { ArchiveLink } from "@/components/ui/ArchiveLink"
 import { Meta, Reveal } from "@/components/ui/Reveal"
 import { Stat } from "@/components/ui/WindowFrame"
@@ -13,6 +14,9 @@ export function ProjectPage() {
 
   const project = getProject(slug)
   if (!project) return <Navigate to="/works" replace />
+  if (isExternalProject(project)) {
+    return <ExternalRedirect href={project.to} />
+  }
   if (project.to !== `/works/${project.slug}`) {
     return <Navigate to={project.to} replace />
   }
@@ -89,9 +93,15 @@ export function ProjectPage() {
           <Link to="/works" className="text-[11px] tracking-[0.16em] uppercase text-mute" data-cursor="BACK">
             ← Index
           </Link>
-          <ArchiveLink to={next.to} cursor="NEXT">
-            Next · {next.title}
-          </ArchiveLink>
+          {isExternalProject(next) ? (
+            <ArchiveLink href={next.to} cursor="NEXT">
+              Next · {next.title}
+            </ArchiveLink>
+          ) : (
+            <ArchiveLink to={next.to} cursor="NEXT">
+              Next · {next.title}
+            </ArchiveLink>
+          )}
         </div>
       </div>
     </article>
@@ -106,4 +116,11 @@ function CaseBlock({ kicker, title, body }: { kicker: string; title: string; bod
       <p className="mt-4 text-[15px] text-mute">{body}</p>
     </Reveal>
   )
+}
+
+function ExternalRedirect({ href }: { href: string }) {
+  useEffect(() => {
+    window.location.replace(href)
+  }, [href])
+  return null
 }

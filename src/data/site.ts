@@ -35,7 +35,7 @@ export const nav = [
 
 export const directory = [
   { num: "01", title: "About", hint: "Profile / Approach", to: "/about" },
-  { num: "02", title: "Works", hint: "Community · AI · Play", to: "/works" },
+  { num: "02", title: "Works", hint: "Community · AI · Play · Sentiment", to: "/works" },
   { num: "03", title: "Internship", hint: "NetEase · POIZON", to: "/internship" },
   { num: "04", title: "Process", hint: "Research → Optimization", to: "/process" },
   { num: "05", title: "Contact", hint: "Email / WeChat / GitHub", to: "/contact" },

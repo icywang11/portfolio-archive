@@ -98,7 +98,39 @@ export const projects: Project[] = [
     reflection: "",
     stats: [],
   },
+  {
+    slug: "sentiment",
+    num: "04",
+    title: "舆情处理",
+    enTitle: "Sentiment Board",
+    category: "Work",
+    year: "2026",
+    role: "社区运营",
+    to: "https://icywang11.github.io/community-board/",
+    href: "https://icywang11.github.io/community-board/",
+    hrefLabel: "打开舆情看板",
+    summary: "把玩家反馈收成整体、本周、议题、建议和原话。点进去打开舆情看板。",
+    overview:
+      "社区消息量和舆情速度靠手工翻会跟不上。我把处理写成固定步骤：收集、确认、策略、复盘，再收到同一张看板上。",
+    challenge: "反馈散在频道和表格里，单周情绪容易盖过跨周反复出现的问题。",
+    approach: "先看整体和跨周主线，再看当周类型，最后落到建议、动作和原话。",
+    execution: [
+      "累计有效反馈收进整体舆情",
+      "按周拆类型、建议和原话",
+      "跨周反复出现的议题单独跟踪",
+    ],
+    result: "看板可在线打开：整体、本周、议题、建议、原话在同一套目录里。",
+    reflection: "舆情处理的成绩是能不能从原话走到下一周动作，而不是停在情绪统计。",
+    stats: [
+      { value: "3950", label: "有效反馈" },
+      { value: "24", label: "周" },
+    ],
+  },
 ]
+
+export function isExternalProject(project: Project) {
+  return /^https?:\/\//.test(project.to)
+}
 
 export const projectLinks: Record<string, { label: string; href: string }[]> = {
   "ai-tools": [
@@ -116,6 +148,8 @@ export const projectRedirects: Record<string, string> = {
   "play-mechanics": "/play",
   play: "/play",
   "ai-ops-tools": "/works/ai-tools",
+  yuqing: "https://icywang11.github.io/community-board/",
+  "community-board": "https://icywang11.github.io/community-board/",
 }
 
 export function getProject(slug: string) {

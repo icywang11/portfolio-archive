@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { directory, identity, site } from "@/data/site"
 import { projects } from "@/data/projects"
 import { ArchiveLink } from "@/components/ui/ArchiveLink"
+import { ProjectNav } from "@/components/ui/ProjectNav"
 import { Meta, Reveal } from "@/components/ui/Reveal"
 
 export function HomePage() {
@@ -118,13 +119,13 @@ function IdentityRow({ label, value }: { label: string; value: string }) {
 
 function WorkPreview({ project }: { project: (typeof projects)[number] }) {
   return (
-    <Link to={project.to} data-cursor="VIEW" className="group block border-t border-line pt-5">
+    <ProjectNav project={project} className="group block border-t border-line pt-5">
       <Meta>
         {project.num} / {project.category}
       </Meta>
       <h3 className="mt-2 font-serif text-3xl transition-all duration-300 group-hover:italic">{project.title}</h3>
       <p className="mt-2 max-w-xl text-[14px] text-mute">{project.summary}</p>
       <p className="mt-3 text-[11px] tracking-[0.16em] uppercase text-mute group-hover:text-ink">View project →</p>
-    </Link>
+    </ProjectNav>
   )
 }

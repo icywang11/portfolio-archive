@@ -11,7 +11,7 @@ export function InternshipPage() {
           <Meta>Internship / Record</Meta>
           <h1 className="mt-4 font-serif text-[clamp(48px,8vw,84px)] leading-[0.9] italic">Internship</h1>
           <p className="mt-5 max-w-2xl text-[15px] text-mute">
-            两段实习：网易海外运营，得物全球化运营。先写现在这段，再写上一段。
+            两段实习：网易海外运营，得物全球化运营。深耕于海外运营。
           </p>
         </Reveal>
 

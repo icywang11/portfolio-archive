@@ -1,6 +1,9 @@
 # Icy Wang · Portfolio Archive
 
-Icy 的个人作品集：社区运营、AI 小网页、玩法落地，以及实习记录。视觉是编辑设计 / 数字档案馆。
+**个人主页：https://icywang11.github.io/portfolio-archive/**
+
+Icy 的个人作品集：社区运营、AI 小网页、玩法落地，以及实习记录。视觉是编辑设计 / 数字档案馆。正式发布地址和仓库备份见 `留档.md`。
+
 
 ## 本地运行
 

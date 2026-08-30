@@ -1,4 +1,4 @@
-# Yichen Wang · Portfolio Archive
+# Icy Wang · Portfolio Archive
 
 Icy 的个人作品集：社区运营、游戏运营、内容与数据。视觉是编辑设计 / 数字档案馆，信息按求职作品集来写。
 

@@ -21,7 +21,7 @@ export function AboutPage() {
           </Reveal>
           <Reveal delay={0.08}>
             <dl className="space-y-4 text-[15px]">
-              <AboutRow label="Name" value={`${site.name} / ${site.short}`} />
+              <AboutRow label="Name" value={site.name} />
               <AboutRow label="Focus" value={site.focus} />
               <AboutRow label="Location" value={site.location} />
               <AboutRow label="Current" value={site.status} />

@@ -1,21 +1,29 @@
 export const site = {
-  name: "Yichen Wang",
-  short: "Icy",
-  title: "Yichen Wang · Portfolio Archive",
-  description: "社区运营、游戏运营、内容与数据。把社区、活动和复盘做成可复用的工作流。",
+  name: "Icy Wang",
+  title: "Icy Wang · Portfolio Archive",
+  description: "海外运营。把社区、活动和复盘做成可复用的工作流。",
   volume: "VOL. 01",
   year: "2026",
-  roleLine: "COMMUNITY / OPERATIONS / GAME INDUSTRY",
+  roleLine: "OVERSEAS OPERATIONS",
   headline: "A DIGITAL ARCHIVE OF SELECTED WORKS",
   intro: "海外运营、内容与数据。把社区、活动和复盘做成可复用的工作流。",
-  focus: "Community Operations · Game Operations · Data",
+  focus: "海外运营 · 内容 · 数据",
   location: "China / Remote-ready",
   status: "NetEase · 海外运营实习",
+  hobbies: "音乐 / 摄影 / 旅行",
   email: "wycsdu0516@163.com",
   wechat: "Wycrrika",
   github: "https://github.com/icywang11",
   tags: ["Operations", "Data", "Community", "Campaigns", "Japanese"],
 }
+
+export const identity = [
+  { label: "Who", value: "Icy Wang" },
+  { label: "Does", value: "海外运营" },
+  { label: "Hobbies", value: "音乐 / 摄影 / 旅行" },
+  { label: "Now", value: "NetEase · 海外运营实习" },
+  { label: "Contact", value: "wycsdu0516@163.com" },
+] as const
 
 export const nav = [
   { to: "/about", label: "About" },

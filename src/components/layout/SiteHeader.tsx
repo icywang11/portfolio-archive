@@ -10,11 +10,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-[1180px] items-center justify-between px-5 md:px-8">
-        <Link to="/" data-cursor="HOME" className="flex items-baseline gap-2">
-          <span className="font-serif text-[22px] italic">{site.name}</span>
-          <span className="hidden text-[11px] tracking-[0.16em] uppercase text-mute sm:inline">
-            {site.short}
-          </span>
+        <Link to="/" data-cursor="HOME" className="font-serif text-[22px] italic">
+          {site.name}
         </Link>
 
         <nav className="hidden items-center gap-7 text-[11px] tracking-[0.18em] uppercase md:flex" aria-label="Primary">
@@ -76,7 +73,7 @@ export function SiteFooter() {
     <footer className="border-t border-line">
       <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-3 px-5 py-7 text-[11px] tracking-[0.14em] uppercase text-mute md:flex-row md:items-center md:justify-between md:px-8">
         <p>
-          © {site.year} {site.name} / {site.short}
+          © {site.year} {site.name}
         </p>
         <p>Portfolio Archive · Quiet Luxury</p>
       </div>

@@ -1,15 +1,19 @@
 import { Link, Navigate, useParams } from "react-router-dom"
-import { getNextProject, getProject, projectLinks } from "@/data/projects"
+import { getNextProject, getProject, projectLinks, projectRedirects } from "@/data/projects"
 import { ArchiveLink } from "@/components/ui/ArchiveLink"
 import { Meta, Reveal } from "@/components/ui/Reveal"
-import { Stat, WindowFrame } from "@/components/ui/WindowFrame"
+import { Stat } from "@/components/ui/WindowFrame"
 
 export function ProjectPage() {
   const { slug } = useParams()
-  const project = slug ? getProject(slug) : undefined
+  const canonical = slug ? (projectRedirects[slug] ?? slug) : undefined
+  if (slug && projectRedirects[slug]) {
+    return <Navigate to={`/works/${projectRedirects[slug]}`} replace />
+  }
+  const project = canonical ? getProject(canonical) : undefined
   if (!project) return <Navigate to="/works" replace />
   const next = getNextProject(project.slug)
-  const extras = projectLinks[project.slug as keyof typeof projectLinks]
+  const extras = projectLinks[project.slug]
 
   return (
     <article className="px-5 py-14 md:px-8 md:py-20">
@@ -21,23 +25,19 @@ export function ProjectPage() {
           <h1 className="mt-4 font-serif text-[clamp(44px,7vw,80px)] leading-[0.9] italic">{project.title}</h1>
           <p className="mt-3 font-serif text-2xl text-mute italic">{project.enTitle}</p>
           <p className="mt-4 text-[12px] tracking-[0.14em] uppercase text-mute">
-            {project.year} / {project.role} / {project.category}
+            {project.year} / {project.role}
           </p>
         </Reveal>
 
-        {project.image ? (
-          <Reveal className="mt-10">
-            <WindowFrame title={project.enTitle}>
-              <img src={project.image} alt={project.imageAlt ?? project.title} className="aspect-[16/9] w-full object-cover" />
-            </WindowFrame>
-          </Reveal>
-        ) : null}
-
-        <div className="mt-12 grid gap-8 border-y border-ink py-8 md:grid-cols-4">
-          {project.stats.map((stat) => (
-            <Stat key={stat.label} value={stat.value} label={stat.label} />
-          ))}
-        </div>
+        {project.stats.length > 0 ? (
+          <div className="mt-12 grid gap-8 border-y border-ink py-8 md:grid-cols-2 lg:grid-cols-4">
+            {project.stats.map((stat) => (
+              <Stat key={stat.label} value={stat.value} label={stat.label} />
+            ))}
+          </div>
+        ) : (
+          <div className="mt-10 border-t border-ink" />
+        )}
 
         <div className="mt-14 grid gap-12 md:grid-cols-2">
           <CaseBlock kicker="Overview" title="项目背景" body={project.overview} />
@@ -61,9 +61,9 @@ export function ProjectPage() {
           <CaseBlock kicker="Reflection" title="复盘" body={project.reflection} />
         </div>
 
-        {extras ? (
+        {extras?.length ? (
           <Reveal className="mt-12 border-t border-line pt-8">
-            <Meta>Live tools</Meta>
+            <Meta>{project.linksLabel ?? "Links"}</Meta>
             <div className="mt-4 flex flex-col gap-3">
               {extras.map((item) => (
                 <ArchiveLink key={item.href} href={item.href} cursor="OPEN">
@@ -75,22 +75,8 @@ export function ProjectPage() {
         ) : project.href ? (
           <Reveal className="mt-12">
             <ArchiveLink href={project.href} cursor="OPEN">
-              Open live work
+              {project.hrefLabel ?? "Open live work"}
             </ArchiveLink>
-          </Reveal>
-        ) : null}
-
-        {project.gallery?.length ? (
-          <Reveal className="mt-16">
-            <Meta>Gallery</Meta>
-            <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {project.gallery.map((item) => (
-                <figure key={item.src} className="overflow-hidden rounded-[16px] border border-line">
-                  <img src={item.src} alt={item.caption} className="w-full object-cover" />
-                  <figcaption className="px-4 py-3 text-[12px] text-mute">{item.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
           </Reveal>
         ) : null}
 

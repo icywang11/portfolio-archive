@@ -1,10 +1,9 @@
 import { motion, useReducedMotion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { directory, site } from "@/data/site"
+import { directory, identity, site } from "@/data/site"
 import { projects } from "@/data/projects"
 import { ArchiveLink } from "@/components/ui/ArchiveLink"
 import { Meta, Reveal } from "@/components/ui/Reveal"
-import { WindowFrame } from "@/components/ui/WindowFrame"
 
 export function HomePage() {
   const reduce = useReducedMotion()
@@ -22,9 +21,7 @@ export function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Meta>
-                Portfolio / {site.volume}
-              </Meta>
+              <Meta>Portfolio / {site.volume}</Meta>
               <h1 className="mt-6 font-serif text-[clamp(64px,12vw,140px)] leading-[0.82] tracking-[-0.03em] italic">
                 {site.name}
               </h1>
@@ -49,11 +46,9 @@ export function HomePage() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="grid gap-4 border-t border-ink pt-6 text-[13px] md:border-t-0 md:border-l md:pt-0 md:pl-10"
           >
-            <IdentityRow label="Who" value={`${site.name} / ${site.short}`} />
-            <IdentityRow label="Does" value="社区、活动与数据运营" />
-            <IdentityRow label="Works" value="4 selected case studies" />
-            <IdentityRow label="Now" value={site.status} />
-            <IdentityRow label="Contact" value={site.email} />
+            {identity.map((row) => (
+              <IdentityRow key={row.label} label={row.label} value={row.value} />
+            ))}
           </motion.aside>
         </div>
       </section>
@@ -99,17 +94,12 @@ export function HomePage() {
             <ArchiveLink to="/works">View all</ArchiveLink>
           </Reveal>
 
-          <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-            <Reveal>
-              <WorkPreview project={projects[0]} featured />
-            </Reveal>
-            <div className="space-y-8">
-              {projects.slice(1).map((project, i) => (
-                <Reveal key={project.slug} delay={i * 0.05}>
-                  <WorkPreview project={project} />
-                </Reveal>
-              ))}
-            </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {projects.map((project, i) => (
+              <Reveal key={project.slug} delay={i * 0.04}>
+                <WorkPreview project={project} />
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -126,32 +116,15 @@ function IdentityRow({ label, value }: { label: string; value: string }) {
   )
 }
 
-function WorkPreview({
-  project,
-  featured = false,
-}: {
-  project: (typeof projects)[number]
-  featured?: boolean
-}) {
+function WorkPreview({ project }: { project: (typeof projects)[number] }) {
   return (
-    <Link to={`/works/${project.slug}`} data-cursor="VIEW" className="group block">
-      {featured && project.image ? (
-        <WindowFrame title={project.category}>
-          <img
-            src={project.image}
-            alt={project.imageAlt ?? project.title}
-            className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-          />
-        </WindowFrame>
-      ) : null}
-      <div className={featured ? "mt-5" : "border-t border-line pt-5"}>
-        <Meta>
-          {project.num} / {project.category}
-        </Meta>
-        <h3 className="mt-2 font-serif text-3xl transition-all duration-300 group-hover:italic">{project.title}</h3>
-        <p className="mt-2 max-w-xl text-[14px] text-mute">{project.summary}</p>
-        <p className="mt-3 text-[11px] tracking-[0.16em] uppercase text-mute group-hover:text-ink">View project →</p>
-      </div>
+    <Link to={`/works/${project.slug}`} data-cursor="VIEW" className="group block border-t border-line pt-5">
+      <Meta>
+        {project.num} / {project.category}
+      </Meta>
+      <h3 className="mt-2 font-serif text-3xl transition-all duration-300 group-hover:italic">{project.title}</h3>
+      <p className="mt-2 max-w-xl text-[14px] text-mute">{project.summary}</p>
+      <p className="mt-3 text-[11px] tracking-[0.16em] uppercase text-mute group-hover:text-ink">View project →</p>
     </Link>
   )
 }

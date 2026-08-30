@@ -10,7 +10,10 @@ export function ProjectPage() {
   if (!slug) return <Navigate to="/works" replace />
 
   const alias = projectRedirects[slug]
-  if (alias) return <Navigate to={alias} replace />
+  if (alias) {
+    if (/^https?:\/\//.test(alias)) return <ExternalRedirect href={alias} />
+    return <Navigate to={alias} replace />
+  }
 
   const project = getProject(slug)
   if (!project) return <Navigate to="/works" replace />

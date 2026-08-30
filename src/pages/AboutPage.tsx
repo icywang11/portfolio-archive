@@ -78,7 +78,7 @@ export function AboutPage() {
           <Reveal>
             <Meta>Interests</Meta>
             <h2 className="mt-3 font-serif text-4xl italic">Outside the archive</h2>
-            <p className="mt-4 max-w-xl text-[15px] text-mute">音乐、摄影、旅行与阅读。点开分类看照片。</p>
+            <p className="mt-4 max-w-xl text-[15px] text-mute">音乐、摄影、旅行与阅读。点开分类看照片或书单。</p>
           </Reveal>
 
           <nav className="mt-10 grid grid-cols-2 border-t border-ink md:grid-cols-4" role="tablist" aria-label="爱好分类">
@@ -104,7 +104,17 @@ export function AboutPage() {
             <h3 className="font-serif text-3xl italic">{current.title}</h3>
             <p className="mt-3 font-serif text-lg text-mute italic">{current.note}</p>
             <div className="mt-8">
-              {current.slides.length > 0 ? (
+              {"books" in current && current.books?.length ? (
+                <div className="grid gap-x-12 gap-y-8 md:grid-cols-2">
+                  {current.books.map((book) => (
+                    <div key={book.title} className="border-t border-line pt-4">
+                      <p className="text-[11px] tracking-[0.16em] uppercase text-mute">{book.genre}</p>
+                      <h4 className="mt-2 font-serif text-3xl italic">{book.title}</h4>
+                      <p className="mt-2 text-[14px] text-mute">{book.author}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : current.slides.length > 0 ? (
                 <AlbumSlider key={current.id} slides={current.slides} label={current.title} />
               ) : null}
             </div>

@@ -11,9 +11,6 @@ export function GamingPage() {
           <h1 id="gaming" className="mt-4 font-serif text-[clamp(48px,8vw,84px)] leading-[0.9] italic">
             游戏经历
           </h1>
-          <p className="mt-5 max-w-2xl text-[15px] text-mute">
-            给游戏行业 HR 看的一份玩法履历。先写深度体验过的品类，再写有一定理解的其他游戏。时长、充值和成绩都是自己打出来的。
-          </p>
         </Reveal>
 
         <div className="mt-16 space-y-16">

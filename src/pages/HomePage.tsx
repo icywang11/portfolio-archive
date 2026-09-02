@@ -35,9 +35,18 @@ export function HomePage() {
               <p className="mt-7 text-[13px] tracking-[0.16em] uppercase text-mute">{site.roleLine}</p>
               <p className="mt-4 max-w-xl text-[15px] text-mute">{site.intro}</p>
               <p className="mt-6 font-serif text-2xl italic md:text-3xl">{site.headline}</p>
-              <ArchiveLink to="/works" cursor="ENTER" className="mt-8 text-ink">
-                Enter Archive
-              </ArchiveLink>
+              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5">
+                <ArchiveLink to="/works" cursor="ENTER" className="text-ink">
+                  Enter Archive
+                </ArchiveLink>
+                <Link
+                  to="/gaming"
+                  data-cursor="PLAY"
+                  className="inline-flex items-center gap-2 border border-ink bg-ink px-5 py-3 text-[12px] tracking-[0.16em] uppercase text-paper-2 transition-colors duration-300 hover:bg-transparent hover:text-ink"
+                >
+                  游戏行业 HR · 看游戏经历
+                </Link>
+              </div>
             </motion.div>
           </div>
 
@@ -51,6 +60,27 @@ export function HomePage() {
               <IdentityRow key={row.label} label={row.label} value={row.value} />
             ))}
           </motion.aside>
+        </div>
+      </section>
+
+      <section className="blue-wash border-y border-line px-5 py-12 md:px-8 md:py-14">
+        <div className="mx-auto flex max-w-[1180px] flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <Reveal>
+            <Meta>For Game Industry HR</Meta>
+            <h2 className="mt-3 font-serif text-3xl italic md:text-5xl">如果你是游戏行业 HR</h2>
+            <p className="mt-3 max-w-xl text-[15px] text-mute">
+              一键前往游戏经历。里面是我实际玩过的品类、时长、充值和成绩：王者荣耀、英雄联盟手游、QQ 飞车、地平线 5、燕云十六声、原神等。
+            </p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <Link
+              to="/gaming"
+              data-cursor="PLAY"
+              className="inline-flex items-center gap-2 border border-ink bg-ink px-6 py-3.5 text-[12px] tracking-[0.16em] uppercase text-paper-2 transition-colors duration-300 hover:bg-transparent hover:text-ink"
+            >
+              一键前往游戏经历
+            </Link>
+          </Reveal>
         </div>
       </section>
 

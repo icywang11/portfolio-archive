@@ -31,6 +31,7 @@ export const nav = [
   { to: "/about", label: "About" },
   { to: "/works", label: "Works" },
   { to: "/internship", label: "Internship" },
+  { to: "/gaming", label: "Gaming" },
   { to: "/process", label: "Process" },
   { to: "/contact", label: "Contact" },
 ] as const
@@ -39,8 +40,9 @@ export const directory = [
   { num: "01", title: "About", hint: "Profile / Approach", to: "/about" },
   { num: "02", title: "Works", hint: "Community · AI · Play · Sentiment", to: "/works" },
   { num: "03", title: "Internship", hint: "NetEase · POIZON", to: "/internship" },
-  { num: "04", title: "Process", hint: "Research → Optimization", to: "/process" },
-  { num: "05", title: "Contact", hint: "Email / Resume / GitHub", to: "/contact" },
+  { num: "04", title: "Gaming", hint: "Play History / 游戏经历", to: "/gaming" },
+  { num: "05", title: "Process", hint: "Research → Optimization", to: "/process" },
+  { num: "06", title: "Contact", hint: "Email / Resume / GitHub", to: "/contact" },
 ] as const
 
 export const internships = [

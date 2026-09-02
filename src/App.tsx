@@ -12,6 +12,7 @@ import { ProcessPage } from "@/pages/ProcessPage"
 import { ContactPage } from "@/pages/ContactPage"
 import { PlayPage } from "@/pages/PlayPage"
 import { InternshipPage } from "@/pages/InternshipPage"
+import { GamingPage } from "@/pages/GamingPage"
 
 export default function App() {
   const location = useLocation()
@@ -59,6 +60,7 @@ export default function App() {
               <Route path="/works/:slug" element={<ProjectPage />} />
               <Route path="/play" element={<PlayPage />} />
               <Route path="/internship" element={<InternshipPage />} />
+              <Route path="/gaming" element={<GamingPage />} />
               <Route path="/process" element={<ProcessPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />

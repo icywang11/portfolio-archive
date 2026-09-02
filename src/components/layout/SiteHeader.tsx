@@ -15,7 +15,7 @@ export function SiteHeader() {
           {site.name}
         </Link>
 
-        <nav className="hidden items-center gap-7 text-[11px] tracking-[0.18em] uppercase md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 text-[11px] tracking-[0.16em] uppercase lg:flex" aria-label="Primary">
           {nav.map((item) => (
             <NavLink
               key={item.to}
@@ -50,7 +50,7 @@ export function SiteHeader() {
           </Link>
           <button
             type="button"
-            className="grid size-9 place-items-center border border-ink md:hidden"
+            className="grid size-9 place-items-center border border-ink lg:hidden"
             aria-label={open ? "关闭菜单" : "打开菜单"}
             onClick={() => setOpen((value) => !value)}
           >
@@ -60,7 +60,7 @@ export function SiteHeader() {
       </div>
 
       {open ? (
-        <nav className="border-t border-line bg-paper px-5 py-4 md:hidden" aria-label="Mobile">
+        <nav className="border-t border-line bg-paper px-5 py-4 lg:hidden" aria-label="Mobile">
           {nav.map((item) => (
             <NavLink
               key={item.to}

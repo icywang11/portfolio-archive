@@ -19,7 +19,9 @@ export function GamingPage() {
             return (
               <section key={depth}>
                 <Reveal>
-                  <Meta>{depth === "深度体验" ? "Deep Play" : "Also Played"}</Meta>
+                  <Meta>
+                    {depth === "深度体验" ? "Deep Play" : depth === "中度体验" ? "Mid Play" : "Also Played"}
+                  </Meta>
                   <h2 className="mt-3 font-serif text-4xl italic">{depth}</h2>
                 </Reveal>
 

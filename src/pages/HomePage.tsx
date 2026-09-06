@@ -69,7 +69,7 @@ export function HomePage() {
             <Meta>For Game Industry HR</Meta>
             <h2 className="mt-3 font-serif text-3xl italic md:text-5xl">如果你是游戏行业 HR</h2>
             <p className="mt-3 max-w-xl text-[15px] text-mute">
-              一键前往游戏经历。里面是我实际玩过的品类、时长、充值和成绩：王者荣耀、英雄联盟手游、QQ 飞车、地平线 5、燕云十六声、原神等。
+              一键前往游戏经历。里面是我实际玩过的品类、时长、充值和成绩：王者荣耀、英雄联盟手游、QQ 飞车、地平线 5、燕云十六声、原神、永劫无间等。
             </p>
           </Reveal>
           <Reveal delay={0.08}>

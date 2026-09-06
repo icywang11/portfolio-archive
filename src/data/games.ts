@@ -36,6 +36,12 @@ export const games = [
     body: "累计游戏时长 100 小时以上。熟悉开放世界探索、角色养成、队伍搭配、元素反应及版本内容体验；关注玩家在探索、养成与剧情体验之间的需求。",
   },
   {
+    depth: "中度体验",
+    type: "动作竞技",
+    title: "永劫无间",
+    body: "熟悉近战动作与对局节奏，常玩胡桃。",
+  },
+  {
     depth: "其他",
     type: "MMO",
     title: "明日之后",
@@ -49,4 +55,4 @@ export const games = [
   },
 ] as const
 
-export const gameDepths = ["深度体验", "其他"] as const
+export const gameDepths = ["深度体验", "中度体验", "其他"] as const

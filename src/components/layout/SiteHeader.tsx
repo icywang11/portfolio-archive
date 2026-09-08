@@ -15,7 +15,7 @@ export function SiteHeader() {
           {site.name}
         </Link>
 
-        <nav className="hidden items-center gap-5 text-[11px] tracking-[0.16em] uppercase lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-4 text-[11px] tracking-[0.16em] uppercase lg:flex" aria-label="Primary">
           {nav.map((item) => (
             <NavLink
               key={item.to}

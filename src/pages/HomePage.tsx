@@ -69,17 +69,22 @@ export function HomePage() {
             <Meta>For Game Industry HR</Meta>
             <h2 className="mt-3 font-serif text-3xl italic md:text-5xl">如果你是游戏行业 HR</h2>
             <p className="mt-3 max-w-xl text-[15px] text-mute">
-              一键前往游戏经历。里面是我实际玩过的品类、时长、充值和成绩：王者荣耀、英雄联盟手游、QQ 飞车、地平线 5、燕云十六声、原神、永劫无间等。
+              一键前往游戏经历。里面是我实际玩过的品类、时长、充值和成绩。想看王者荣耀、QQ 飞车和燕云十六声怎么把人留住，打开体验分析。
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <Link
-              to="/gaming"
-              data-cursor="PLAY"
-              className="inline-flex items-center gap-2 border border-ink bg-ink px-6 py-3.5 text-[12px] tracking-[0.16em] uppercase text-paper-2 transition-colors duration-300 hover:bg-transparent hover:text-ink"
-            >
-              一键前往游戏经历
-            </Link>
+            <div className="flex flex-col items-start gap-3">
+              <Link
+                to="/gaming"
+                data-cursor="PLAY"
+                className="inline-flex items-center gap-2 border border-ink bg-ink px-6 py-3.5 text-[12px] tracking-[0.16em] uppercase text-paper-2 transition-colors duration-300 hover:bg-transparent hover:text-ink"
+              >
+                一键前往游戏经历
+              </Link>
+              <ArchiveLink to="/analysis" cursor="READ" className="text-ink">
+                游戏体验分析
+              </ArchiveLink>
+            </div>
           </Reveal>
         </div>
       </section>

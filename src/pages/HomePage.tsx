@@ -81,7 +81,7 @@ export function HomePage() {
               >
                 一键前往游戏经历
               </Link>
-              <ArchiveLink href={site.analysisHref} cursor="OPEN" className="text-ink">
+              <ArchiveLink href={site.analysisHref} cursor="OPEN" className="text-ink" sameTab>
                 打开游戏体验报告
               </ArchiveLink>
             </div>

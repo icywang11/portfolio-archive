@@ -13,7 +13,7 @@ export function GamingPage() {
             游戏经历
           </h1>
           <div className="mt-8">
-            <ArchiveLink href={site.analysisHref} cursor="OPEN">
+            <ArchiveLink href={site.analysisHref} cursor="OPEN" sameTab>
               打开游戏体验报告
             </ArchiveLink>
           </div>

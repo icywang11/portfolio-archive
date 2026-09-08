@@ -7,12 +7,13 @@ type Props = {
   to?: string
   href?: string
   download?: string | boolean
+  sameTab?: boolean
   children: ReactNode
   className?: string
   cursor?: string
 }
 
-export function ArchiveLink({ to, href, download, children, className, cursor = "OPEN" }: Props) {
+export function ArchiveLink({ to, href, download, sameTab, children, className, cursor = "OPEN" }: Props) {
   const classes = cn(
     "group inline-flex items-center gap-2 text-[12px] tracking-[0.16em] uppercase transition-colors duration-300 hover:text-ink",
     className,
@@ -37,8 +38,8 @@ export function ArchiveLink({ to, href, download, children, className, cursor = 
     <a
       href={href}
       download={download}
-      target={download ? undefined : "_blank"}
-      rel={download ? undefined : "noopener noreferrer"}
+      target={download || sameTab ? undefined : "_blank"}
+      rel={download || sameTab ? undefined : "noopener noreferrer"}
       data-cursor={cursor}
       className={classes}
     >

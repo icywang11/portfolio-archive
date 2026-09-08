@@ -11,11 +11,6 @@ export function GamingPage() {
           <h1 id="gaming" className="mt-4 font-serif text-[clamp(48px,8vw,84px)] leading-[0.9] italic">
             游戏经历
           </h1>
-          <div className="mt-8">
-            <ArchiveLink to="/analysis" cursor="READ">
-              打开游戏体验分析
-            </ArchiveLink>
-          </div>
         </Reveal>
 
         <div className="mt-16 space-y-16">
@@ -69,7 +64,6 @@ export function GamingPage() {
         </div>
 
         <div className="mt-16 flex flex-wrap gap-8">
-          <ArchiveLink to="/analysis">游戏体验分析</ArchiveLink>
           <ArchiveLink to="/internship">See internship</ArchiveLink>
           <ArchiveLink to="/">Back to index</ArchiveLink>
         </div>

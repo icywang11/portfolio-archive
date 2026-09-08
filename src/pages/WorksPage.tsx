@@ -14,7 +14,7 @@ export function WorksPage() {
         <Reveal>
           <Meta>Works / Index</Meta>
           <h1 className="mt-4 font-serif text-[clamp(48px,8vw,84px)] leading-[0.9] italic">Selected Works</h1>
-          <p className="mt-5 max-w-2xl text-[15px] text-mute">五条线索：社区运营、AI 工具、玩法落地、舆情处理、游戏体验分析。</p>
+          <p className="mt-5 max-w-2xl text-[15px] text-mute">四条线索：社区运营、AI 工具、玩法落地、舆情处理。</p>
         </Reveal>
 
         <div className="mt-12 hidden gap-14 lg:grid lg:grid-cols-[0.38fr_0.62fr]">

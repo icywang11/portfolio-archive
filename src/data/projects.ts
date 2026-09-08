@@ -126,24 +126,6 @@ export const projects: Project[] = [
       { value: "24", label: "周" },
     ],
   },
-  {
-    slug: "analysis",
-    num: "05",
-    title: "游戏体验分析",
-    enTitle: "Play Analysis",
-    category: "Play",
-    year: "2026",
-    role: "玩家笔记",
-    to: "/analysis",
-    summary: "从王者荣耀、QQ 飞车、燕云十六声里拆循环、体验，以及运营能用的判断。",
-    overview: "",
-    challenge: "",
-    approach: "",
-    execution: [],
-    result: "",
-    reflection: "",
-    stats: [],
-  },
 ]
 
 export function isExternalProject(project: Project) {
@@ -165,8 +147,6 @@ export const projectRedirects: Record<string, string> = {
   poizon: "/internship",
   "play-mechanics": "/play",
   play: "/play",
-  analysis: "/analysis",
-  "game-analysis": "/analysis",
   "ai-ops-tools": "/works/ai-tools",
   yuqing: "https://icywang11.github.io/community-board/",
   "community-board": "https://icywang11.github.io/community-board/",

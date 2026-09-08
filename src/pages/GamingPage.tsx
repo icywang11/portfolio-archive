@@ -1,4 +1,5 @@
 import { gameDepths, games } from "@/data/games"
+import { site } from "@/data/site"
 import { ArchiveLink } from "@/components/ui/ArchiveLink"
 import { Meta, Reveal } from "@/components/ui/Reveal"
 
@@ -11,6 +12,11 @@ export function GamingPage() {
           <h1 id="gaming" className="mt-4 font-serif text-[clamp(48px,8vw,84px)] leading-[0.9] italic">
             游戏经历
           </h1>
+          <div className="mt-8">
+            <ArchiveLink href={site.analysisHref} cursor="OPEN">
+              打开游戏体验报告
+            </ArchiveLink>
+          </div>
         </Reveal>
 
         <div className="mt-16 space-y-16">

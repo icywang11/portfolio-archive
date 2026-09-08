@@ -16,6 +16,7 @@ export const site = {
   github: "https://github.com/icywang11",
   resume: "/icywang-resume.pdf",
   resumeFileName: "icywang 简历.pdf",
+  analysisHref: "https://icywang11.github.io/game-analysis/",
   tags: ["Operations", "Data", "Community", "Campaigns", "Japanese"],
 }
 

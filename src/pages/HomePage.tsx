@@ -73,13 +73,18 @@ export function HomePage() {
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <Link
-              to="/gaming"
-              data-cursor="PLAY"
-              className="inline-flex items-center gap-2 border border-ink bg-ink px-6 py-3.5 text-[12px] tracking-[0.16em] uppercase text-paper-2 transition-colors duration-300 hover:bg-transparent hover:text-ink"
-            >
-              一键前往游戏经历
-            </Link>
+            <div className="flex flex-col items-start gap-3">
+              <Link
+                to="/gaming"
+                data-cursor="PLAY"
+                className="inline-flex items-center gap-2 border border-ink bg-ink px-6 py-3.5 text-[12px] tracking-[0.16em] uppercase text-paper-2 transition-colors duration-300 hover:bg-transparent hover:text-ink"
+              >
+                一键前往游戏经历
+              </Link>
+              <ArchiveLink href={site.analysisHref} cursor="OPEN" className="text-ink">
+                打开游戏体验报告
+              </ArchiveLink>
+            </div>
           </Reveal>
         </div>
       </section>
